@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>RCON++</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/main.js"></script>
+</head>
+<body onload="load();">
+  <div id="header">
+    <div id="title">
+      <span>RCON++</span>
+    </div>
+    <div id="nav">
+      <button onclick="connection.setup(this);">Connect</button>
+    </div>
+  </div>
+  <div id="content">
+    <div id="server_management" class="section">
+      <span class="header">Server Management</span>
+      <form onsubmit="handle(this);return false;">
+        <select name="command">
+          <option value="help">/help</option>
+          <option value="say">/say</option>
+          <option value="list">/list</option>
+        </select>
+        <input type="text" name="args" placeholder="args">
+        <br><br>
+        <button type="submit">Run</button>
+      </form>
+    </div>
+    <div id="player_management" class="section">
+      <span class="header">Player Management</span>
+      <form onsubmit="handle(this);return false;">
+        <select name="command">
+          <option value="gamemode">/gamemode</option>
+          <option value="kill">/kill</option>
+          <option value="kick">/kick</option>
+          <option value="give">/give</option>
+          <option value="op">/op</option>
+          <option value="deop">/deop</option>
+          <option value="ban">/ban</option>
+          <option value="ban-ip">/ban-ip</option>
+        </select>
+        <input type="text" name="args" placeholder="args">
+        <br><br>
+        <button type="submit">Run</button>
+      </form>
+    </div>
+    <div id="custom_usage" class="section">
+      <span class="header">Custom Usage</span>
+      <form onsubmit="handle(this);return false;">
+        <select name="command" disabled>
+          <option value="">/</option>
+        </select>
+        <input type="text" name="args" placeholder="command args">
+        <br><br>
+        <button type="submit">Run</button>
+      </form>
+    </div>
+    <div id="multiple_commands" class="section">
+      <span class="header">Multiple Commands</span>
+      <form onsubmit="handleMultiple(this); return false;">
+        <textarea name="args" placeholder="paste your lines of commands..."></textarea>
+        <input type="checkbox" name="try_again">Try again to execute command if failed?
+        <br><br>
+        <button type="submit">Run</button>
+      </form>
+    </div>
+    <div id="log" class="section">
+      <span class="header">Log</span>
+      <div style="width:100%;overflow-x:auto;">
+        <table>
+          <tr>
+            <th>Command</th>
+            <th>Response</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <span>Created By <a href="https://edroid.tk">eDroid</a></span>
+  </div>
+</body>
+</html>
